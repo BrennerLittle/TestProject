@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Conditions Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Header Section -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Conditions Page</h1>
+            <div>
+                <span class="me-4">Logged in as: {{ username }}</span>
+                <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+      <!-- Inspection Details Section -->
+<h2>Inspection Details</h2>
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Attribute 1</th>
+            <th>Attribute 2</th>
+            <th>Attribute 3</th>
+            <th>Attribute 4</th>
+            <th>Attribute 5</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ inspection.id }}</td>
+            <td>{{ inspection.Attribute_1 }}</td>
+            <td>{{ inspection.Attribute_2 }}</td>
+            <td>{{ inspection.Attribute_3 }}</td>
+            <td>{{ inspection.Attribute_4 }}</td>
+            <td>{{ inspection.Attribute_5 }}</td>
+        </tr>
+    </tbody>
+</table>
+
+        <h2 class="mt-5">Associated Conditions</h2>
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Attribute 1</th>
+                    <th>Attribute 2</th>
+                    <th>Attribute 3</th>
+                    <th>Attribute 4</th>
+                    <th>Attribute 5</th>
+                    <th>Attribute 6</th>
+                    <th>Attribute 7</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for condition in conditions %}
+                <tr>
+                    <td>{{ condition.id }}</td>
+                    <td>{{ condition.Attribute_1 }}</td>
+                    <td>{{ condition.Attribute_2 }}</td>
+                    <td>{{ condition.Attribute_3 }}</td>
+                    <td>{{ condition.Attribute_4 }}</td>
+                    <td>{{ condition.Attribute_5 }}</td>
+                    <td>{{ condition.Attribute_6 }}</td>
+                    <td>{{ condition.Attribute_7 }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center">No conditions found for this inspection</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
