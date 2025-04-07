@@ -15,5 +15,3 @@ Then run this project
 
 ```manage.py runserver 8000```
 
-TODO:
-Add Documentation
