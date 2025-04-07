@@ -1,4 +1,4 @@
-configure settings.pu
+configure settings.py
 ```DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
