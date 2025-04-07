@@ -1,4 +1,4 @@
-configure settings.py
+configure settings.py example of the default configuartion.
 ```DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
