@@ -10,6 +10,15 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from .models import Inspection, Condition
 
+from django.shortcuts import redirect
+def custom_404_view(request, exception):
+
+        return redirect('login')
+
+def custom_500_view(request):
+
+        return redirect('login')
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
