@@ -1,5 +1,5 @@
 from django.db import models
-
+#copy and pasted form the instructions with light modification
 # Create your models here.
 class Inspection(models.Model):
 

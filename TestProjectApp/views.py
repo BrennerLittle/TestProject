@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+#some imports arent needed but I do not want to break things
 # Create your views here.
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout

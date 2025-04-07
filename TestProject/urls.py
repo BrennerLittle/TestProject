@@ -29,14 +29,14 @@ from TestProjectApp.views import login_view, home_view, conditions_view, logout_
 from django.shortcuts import redirect
 
 
-
+#custom handlers
 handler404 = 'TestProjectApp.views.custom_404_view'
 handler500 = 'TestProjectApp.views.custom_500_view'
 
 
 
 urlpatterns = [
-
+#declare the four required pages
 
     path('', login_view, name='login'),
     path('home/', home_view, name='home'),
