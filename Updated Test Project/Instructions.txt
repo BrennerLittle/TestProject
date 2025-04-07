@@ -1,0 +1,99 @@
+
+
+- Instructions
+    
+    - The end result does not need to look exactly like the example, much of the example was built using bootstrap example components, feel free to use those.
+    - When finished, please send a GitHub link showing your code along with a screen recording of your site
+    - If you are unable to complete all of the instructions that is fine, just submit a recording of what you have along with the GitHub link of your code. 
+
+
+
+    - Attempt to Create a Django application with the following three pages
+
+        - Login page and logout function
+            - Login
+                - Username
+                - Password
+                - Login button
+                - Message telling the user they have entered incorrect credentials if applicable (Only show this message if a login attempt has failed)
+            - No need to create a register function, create a super user instead using 'python manage.py createsuperuser'
+            - Once a user has provided the correct username and password, route them to the home page 
+
+        - Home page
+            - If a user is not logged in, redirect them to login page
+            - The home page should contain the following:
+                - Currently logged in username
+                - Logout link
+                - A clickable table displaying all fields from the Inspection model
+                    - When a user clicks on a table row, redirect them to the redirected page which will display all the conditions with that inspection as a foreign key
+                    - Use a JQuery event listener to determine when a user has clicked on a table row and which row
+
+        - Conditions page
+            - If a user is not logged in, redirect them to login page
+            - The Conditions page should contain the following:
+                - Currently logged in username
+                - Logout link
+                - A table containing only the requested inspection's data
+                - A table containing the conditions associated with the requested inspection (Foreign key)
+
+Create the following models and use the provided SQL file to insert data into the tables
+Models:
+
+```
+    class Inspection(models.Model):
+        Attribute_1 = models.CharField(max_length=50)
+        Attribute_2 = models.CharField(max_length=50)
+        Attribute_3 = models.CharField(max_length=50)
+        Attribute_4 = models.CharField(max_length=50)
+        Attribute_5 = models.CharField(max_length=50)
+        Attribute_6 = models.CharField(max_length=50)
+        Attribute_7 = models.CharField(max_length=50)
+
+        def __str__(self):
+            return self.id
+    
+        class Meta:
+            db_table = "Inspection"
+
+    class Condition(models.Model):
+        Inspection = models.ForeignKey(
+            Inspection,
+            on_delete=models.CASCADE
+        )
+        Attribute_1 = models.CharField(max_length=50)
+        Attribute_2 = models.CharField(max_length=50)
+        Attribute_3 = models.CharField(max_length=50)
+        Attribute_4 = models.CharField(max_length=50)
+        Attribute_5 = models.CharField(max_length=50)
+        Attribute_6 = models.CharField(max_length=50)
+        Attribute_7 = models.CharField(max_length=50)
+
+        def __str__(self):
+            return self.id
+        
+        class Meta:
+            db_table = "Condition"
+```
+
+
+Helpful links
+
+- Django documentation
+    - https://docs.djangoproject.com/en/4.2/
+
+- Change database to the MySQL Engine (Will need to install the MySQL service)
+    - https://stackoverflow.com/questions/63109987/nameerror-name-mysql-is-not-defined-after-setting-change-to-mysql (Potential Error Fix)
+    - https://docs.djangoproject.com/en/4.2/ref/databases/#mysql-notes (Django Documentation)
+    - https://pypi.org/project/mysqlclient/ (Python Library)
+    - https://dev.mysql.com/downloads/mysql/ (MySQL Community Server Download)
+    - https://dev.mysql.com/downloads/workbench/ (MySQL Workbench Download)
+
+- Bootstrap (Use CDN, both JS and CSS)
+    - https://getbootstrap.com/docs/5.3/getting-started/introduction/
+
+- JQuery (Use CDN)
+    - https://jquery.com/download/
+
+- JQuery Redirect (Use CDN)
+    - https://github.com/mgalante/jquery.redirect
+
