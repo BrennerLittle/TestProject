@@ -10,7 +10,7 @@ configure settings.py
     }
 }
 ```
-Inject the sql data contained in project specs.
+Inject the sql data contained in project specs folder. undated test project dump(1).sql into the database
 Then run this project
 
 ```manage.py runserver 8000```
